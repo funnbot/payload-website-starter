@@ -54,6 +54,7 @@
     "sharp": "0.34.2",
     "tailwind-merge": "^3.4.0",
     "@payloadcms/db-vercel-postgres": "3.82.1",
+    "@payloadcms/db-postgres": "3.82.1"
     "@payloadcms/storage-vercel-blob": "3.82.1"
   },
   "devDependencies": {

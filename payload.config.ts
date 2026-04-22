@@ -1,6 +1,6 @@
 import sharp from 'sharp'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 import { buildConfig } from 'payload'
 
 export default buildConfig({
@@ -14,9 +14,11 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || '',
   // Whichever Database Adapter you're using should go here
   // Mongoose is shown as an example, but you can also use Postgres
-  db: vercelPostgresAdapter({
+  db: postgresAdapter({
+    // Postgres-specific arguments go here.
+    // `pool` is required.
     pool: {
-      connectionString: process.env.DATABASE_POSTGRES_URL,
+      connectionString: process.env.POSTGRES_DATABASE_URL,
     },
   }),
   // If you want to resize images, crop, set focal point, etc.
